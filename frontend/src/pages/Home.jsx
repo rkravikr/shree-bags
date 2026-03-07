@@ -25,58 +25,77 @@ const Home = () => {
     return (
         <div className="w-full flex flex-col items-center">
             {/* Hero Section */}
-            <section className="w-full min-h-[85vh] bg-[#f9f9f9] text-neutral-900 flex flex-col justify-center px-4 sm:px-8 lg:px-16 overflow-hidden relative">
-                <div className="max-w-7xl mx-auto w-full flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-20 pt-20 pb-16">
+            <section className="w-full min-h-[60vh] lg:min-h-[85vh] bg-[#f9f9f9] text-neutral-900 flex flex-col justify-center px-4 sm:px-8 lg:px-16 overflow-hidden relative pt-6 lg:pt-0">
+                <div className="max-w-7xl mx-auto w-full flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-20 pt-4 lg:pt-20 pb-12 lg:pb-16">
                     
                     {/* Left Side: Content */}
-                    <div className="w-full lg:w-1/2 flex flex-col items-start text-left z-10 animate-fade-in-up">
-                        <span className="inline-block px-4 py-1.5 rounded-full bg-neutral-900 text-white text-xs font-bold tracking-widest uppercase mb-6">
+                    <div className="w-full lg:w-1/2 flex flex-col items-start text-left z-10 animate-fade-in-up mt-4 lg:mt-0">
+                        <span className="inline-block px-3 py-1 lg:px-4 lg:py-1.5 rounded-full bg-neutral-900 text-white text-[10px] lg:text-xs font-bold tracking-widest uppercase mb-4 lg:mb-6">
                             New Collection 2026
                         </span>
                         
-                        <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold font-serif mb-6 leading-[1.1] text-neutral-900">
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold font-serif mb-4 lg:mb-6 leading-[1.1] text-neutral-900">
                             Stylish Bags for Every Occasion.
                         </h1>
                         
-                        <p className="text-lg md:text-xl text-neutral-600 max-w-lg mb-10 font-light leading-relaxed">
+                        <p className="text-base sm:text-lg md:text-xl text-neutral-600 max-w-lg mb-8 lg:mb-10 font-light leading-relaxed">
                             Discover premium tote, travel, and custom printed bags designed for everyday style and unmatched durability.
                         </p>
                         
-                        <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                        <div className="flex flex-col sm:flex-row gap-3 lg:gap-4 w-full sm:w-auto">
                             <Link
                                 to="/products"
-                                className="bg-neutral-900 text-white px-8 py-4 rounded-full font-bold hover:bg-neutral-800 transition-all hover:scale-105 active:scale-95 shadow-xl text-center flex items-center justify-center gap-2"
+                                className="bg-neutral-900 text-white px-6 py-3 lg:px-8 lg:py-4 rounded-full font-bold hover:bg-neutral-800 transition-all hover:scale-105 active:scale-95 shadow-xl text-center flex items-center justify-center gap-2"
                             >
                                 Shop Collection <span className="text-xl leading-none">&rarr;</span>
                             </Link>
                             <Link
                                 to="/about"
-                                className="bg-transparent border-2 border-neutral-200 text-neutral-800 px-8 py-4 rounded-full font-bold hover:bg-neutral-50 hover:border-neutral-300 transition-all text-center"
+                                className="bg-transparent border-2 border-neutral-200 text-neutral-800 px-6 py-3 lg:px-8 lg:py-4 rounded-full font-bold hover:bg-neutral-50 hover:border-neutral-300 transition-all text-center"
                             >
                                 Explore Products
                             </Link>
                         </div>
                     </div>
 
-                    {/* Right Side: Featured Image */}
-                    <div className="w-full lg:w-1/2 relative flex justify-center lg:justify-end animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+                    {/* Right Side: Featured Gallery */}
+                    <div className="w-full lg:w-1/2 relative flex justify-center lg:justify-end animate-fade-in-up mt-6 lg:mt-0" style={{ animationDelay: '0.2s' }}>
                         {/* Decorative Background Blob */}
                         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-blue-50 rounded-full blur-3xl opacity-70 -z-10"></div>
                         
-                        <div className="relative w-full max-w-[500px] aspect-[4/5] rounded-[2.5rem] overflow-hidden shadow-2xl border-8 border-white bg-neutral-100 transform rotate-2 hover:rotate-0 transition-transform duration-500">
-                            <img 
-                                src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7?q=80&w=1000&auto=format&fit=crop" 
-                                alt="Premium Minimal Tote Bag" 
-                                className="w-full h-full object-cover"
-                            />
-                        </div>
-                        
-                        {/* Floating elements (Optional for extra premium feel) */}
-                        <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-xl flex items-center gap-3 animate-bounce" style={{ animationDuration: '3s' }}>
-                            <div className="w-12 h-12 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-xl">✨</div>
-                            <div>
-                                <p className="text-sm font-bold text-neutral-900">Bestseller</p>
-                                <p className="text-xs text-neutral-500">Minimal Tote</p>
+                        <div className="relative w-full max-w-[550px] grid grid-cols-2 gap-3 sm:gap-4 lg:gap-6">
+                            <div className="flex flex-col gap-3 sm:gap-4 lg:gap-6 mt-8 sm:mt-12">
+                                <img 
+                                    src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7?q=80&w=600&auto=format&fit=crop" 
+                                    alt="Premium Minimal Tote Bag" 
+                                    className="w-full aspect-[4/5] object-cover rounded-2xl sm:rounded-3xl shadow-lg border-2 sm:border-4 border-white"
+                                />
+                                <img 
+                                    src="https://images.unsplash.com/photo-1584916201218-f4242ceb4809?q=80&w=600&auto=format&fit=crop" 
+                                    alt="Foldable Market Bag" 
+                                    className="w-full aspect-square object-cover rounded-2xl sm:rounded-3xl shadow-lg border-2 sm:border-4 border-white"
+                                />
+                            </div>
+                            <div className="flex flex-col gap-3 sm:gap-4 lg:gap-6 mb-8 sm:mb-12">
+                                <img 
+                                    src="https://images.unsplash.com/photo-1547949003-9792a18a2601?q=80&w=600&auto=format&fit=crop" 
+                                    alt="Leather Travel Bag" 
+                                    className="w-full aspect-square object-cover rounded-2xl sm:rounded-3xl shadow-lg border-2 sm:border-4 border-white"
+                                />
+                                <img 
+                                    src="https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?q=80&w=600&auto=format&fit=crop" 
+                                    alt="Eco Cotton Tote" 
+                                    className="w-full aspect-[4/5] object-cover rounded-2xl sm:rounded-3xl shadow-lg border-2 sm:border-4 border-white"
+                                />
+                            </div>
+                            
+                            {/* Floating badge */}
+                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white/90 backdrop-blur-sm p-2 sm:p-4 rounded-xl sm:rounded-2xl shadow-xl flex flex-col sm:flex-row items-center gap-1 sm:gap-3 z-10">
+                                <div className="w-8 h-8 sm:w-12 sm:h-12 bg-neutral-900 text-white rounded-full flex items-center justify-center text-sm sm:text-xl">✨</div>
+                                <div className="text-center sm:text-left">
+                                    <p className="text-[10px] sm:text-sm font-bold text-neutral-900 leading-tight block">Premium</p>
+                                    <p className="text-[8px] sm:text-xs text-neutral-500 leading-tight block">Collection</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -85,7 +104,7 @@ const Home = () => {
             </section>
 
             {/* Category Discovery Section */}
-            <section className="py-24 px-4 w-full bg-white">
+            <section className="py-12 lg:py-24 px-4 w-full bg-white">
                 <div className="max-w-7xl mx-auto flex flex-col items-center">
                     <h2 className="text-4xl font-bold font-serif text-neutral-900 mb-4 text-center">Shop by Category</h2>
                     <p className="text-neutral-500 text-lg mb-12 text-center max-w-2xl">Find exactly what you're looking for by browsing our premium bag collections.</p>
@@ -131,7 +150,7 @@ const Home = () => {
             </section>
 
             {/* Feature Section */}
-            <section className="py-24 px-4 w-full bg-neutral-50 border-t border-neutral-100">
+            <section className="py-12 lg:py-24 px-4 w-full bg-neutral-50 border-t border-neutral-100">
                 <div className="max-w-7xl mx-auto">
                     <div className="flex flex-col md:flex-row justify-between items-end mb-12">
                         <div>
@@ -154,7 +173,7 @@ const Home = () => {
             </section>
 
             {/* Trust Section */}
-            <section className="py-24 px-4 w-full bg-white border-t border-neutral-100">
+            <section className="py-12 lg:py-24 px-4 w-full bg-white border-t border-neutral-100">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
                         <h2 className="text-4xl font-bold font-serif text-neutral-900 mb-4">Why Choose Shree Bags</h2>
