@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import ProductGrid from '../components/ProductGrid';
 import api from '../services/api';
 
@@ -8,6 +9,7 @@ const Products = () => {
     const [activeCategory, setActiveCategory] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [searchQuery, setSearchQuery] = useState('');
+    const location = useLocation();
 
     useEffect(() => {
         const fetchData = async () => {
@@ -19,6 +21,17 @@ const Products = () => {
 
                 setProducts(productsRes.data);
                 setCategories(categoriesRes.data);
+
+                // Auto-filter by category slug from URL if present
+                const searchParams = new URLSearchParams(location.search);
+                const categorySlug = searchParams.get('category');
+                
+                if (categorySlug && categoriesRes.data) {
+                    const foundCategory = categoriesRes.data.find(c => c.slug === categorySlug);
+                    if (foundCategory) {
+                        setActiveCategory(foundCategory.id);
+                    }
+                }
             } catch (error) {
                 console.error('Failed to fetch data:', error);
             } finally {
@@ -26,7 +39,7 @@ const Products = () => {
             }
         };
         fetchData();
-    }, []);
+    }, [location.search]);
 
     const filteredProducts = products.filter((product) => {
         const matchesCategory = activeCategory ? product.categoryId === activeCategory : true;

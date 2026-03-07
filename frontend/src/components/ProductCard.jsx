@@ -14,13 +14,22 @@ const ProductCard = ({ product }) => {
                         loading="lazy"
                     />
                 </Link>
-                {/* Quick Actions (Optional hover state) */}
-                <div className="absolute bottom-4 left-0 right-0 flex justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                {/* Quick Actions (Hover state) */}
+                <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2 px-4 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                    <a
+                        href={`https://wa.me/${import.meta.env.VITE_WHATSAPP_NUMBER || "919876543210"}?text=${encodeURIComponent(`Hello, I want to order this product:\n\n*Product*: ${product.name}\n*Price*: ₹${product.price}`)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 bg-[#25D366] text-white px-4 py-2.5 rounded-xl text-sm font-bold shadow-lg hover:bg-[#128C7E] transition-colors text-center truncate"
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        Order Now
+                    </a>
                     <Link
                         to={`/products/${product.slug}`}
-                        className="bg-neutral-900 text-white px-6 py-2 rounded-full text-sm font-medium shadow-lg hover:bg-neutral-800 transition-colors"
+                        className="bg-neutral-900 text-white px-4 py-2.5 rounded-xl text-sm font-bold shadow-lg hover:bg-neutral-800 transition-colors shrink-0"
                     >
-                        View Details
+                        Details
                     </Link>
                 </div>
             </div>
