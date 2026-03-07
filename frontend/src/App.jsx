@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -17,6 +17,11 @@ import AdminRoute from './admin/AdminRoute';
 const Layout = ({ children }) => {
   const location = useLocation();
   const isAdminRoute = location.pathname.startsWith('/admin');
+
+  // Automatically scroll to the top of the page on route change
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
   if (isAdminRoute) {
     return <main className="flex-grow bg-neutral-100">{children}</main>;

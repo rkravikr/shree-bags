@@ -11,8 +11,8 @@ const Home = () => {
         const fetchProducts = async () => {
             try {
                 const response = await api.get('/products');
-                // Just take the first 4 for the home page feature section
-                setFeaturedProducts(response.data.slice(0, 4));
+                // Take up to 20 for the home page feature section
+                setFeaturedProducts(response.data.slice(0, 20));
             } catch (error) {
                 console.error('Failed to fetch home products:', error);
             } finally {
@@ -50,7 +50,7 @@ const Home = () => {
                                 Shop Collection <span className="text-xl leading-none">&rarr;</span>
                             </Link>
                             <Link
-                                to="/about"
+                                to="/products"
                                 className="bg-transparent border-2 border-neutral-200 text-neutral-800 px-6 py-3 lg:px-8 lg:py-4 rounded-full font-bold hover:bg-neutral-50 hover:border-neutral-300 transition-all text-center"
                             >
                                 Explore Products
