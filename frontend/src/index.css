@@ -13,3 +13,45 @@ body {
   background-color: #f8fafc;
   color: #0f172a;
 }
+
+.testimonial-marquee {
+  overflow: hidden;
+}
+
+.testimonial-track {
+  display: flex;
+  gap: 1rem;
+  width: max-content;
+  animation: testimonial-scroll 42s linear infinite;
+  will-change: transform;
+}
+
+.testimonial-marquee:hover .testimonial-track {
+  animation-play-state: paused;
+}
+
+@media (max-width: 640px) {
+  .testimonial-track {
+    gap: 0.75rem;
+    animation-duration: 34s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .testimonial-track {
+    animation: none;
+    width: 100%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 0.25rem;
+  }
+}
+
+@keyframes testimonial-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

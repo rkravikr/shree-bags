@@ -8,6 +8,7 @@ import Products from './pages/Products';
 import ProductDetails from './pages/ProductDetails';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import CustomPrinting from './pages/CustomPrinting';
 
 // Admin Components
 import AdminLogin from './admin/AdminLogin';
@@ -63,6 +64,7 @@ const AnimatedRoutes = () => {
         <Route path="/" element={<PageTransition><Home /></PageTransition>} />
         <Route path="/products" element={<PageTransition><Products /></PageTransition>} />
         <Route path="/products/:slug" element={<PageTransition><ProductDetails /></PageTransition>} />
+        <Route path="/custom-printing" element={<PageTransition><CustomPrinting /></PageTransition>} />
         <Route path="/about" element={<PageTransition><About /></PageTransition>} />
         <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
 
