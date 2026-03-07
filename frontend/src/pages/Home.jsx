@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import Tilt from 'react-parallax-tilt';
 import ProductGrid from '../components/ProductGrid';
 import api from '../services/api';
 
@@ -25,79 +26,119 @@ const Home = () => {
     return (
         <div className="w-full flex flex-col items-center">
             {/* Hero Section */}
-            <section className="w-full min-h-[60vh] lg:min-h-[85vh] bg-[#f9f9f9] text-neutral-900 flex flex-col justify-center px-4 sm:px-8 lg:px-16 overflow-hidden relative pt-6 lg:pt-0">
-                <div className="max-w-7xl mx-auto w-full flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-20 pt-4 lg:pt-20 pb-12 lg:pb-16">
+            <section className="w-full min-h-[60vh] lg:min-h-[85vh] bg-[#f9f9f9] text-neutral-900 flex flex-col justify-center px-4 sm:px-8 lg:px-16 overflow-hidden relative pt-6 sm:pt-8 lg:pt-0">
+                <div className="max-w-7xl mx-auto w-full flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-20 py-8 lg:py-24">
                     
                     {/* Left Side: Content */}
-                    <div className="w-full lg:w-1/2 flex flex-col items-start text-left z-10 animate-fade-in-up mt-4 lg:mt-0">
-                        <span className="inline-block px-3 py-1 lg:px-4 lg:py-1.5 rounded-full bg-neutral-900 text-white text-[10px] lg:text-xs font-bold tracking-widest uppercase mb-4 lg:mb-6">
-                            New Collection 2026
-                        </span>
-                        
-                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold font-serif mb-4 lg:mb-6 leading-[1.1] text-neutral-900">
-                            Stylish Bags for Every Occasion.
-                        </h1>
-                        
-                        <p className="text-base sm:text-lg md:text-xl text-neutral-600 max-w-lg mb-8 lg:mb-10 font-light leading-relaxed">
-                            Discover premium tote, travel, and custom printed bags designed for everyday style and unmatched durability.
-                        </p>
-                        
-                        <div className="flex flex-col sm:flex-row gap-3 lg:gap-4 w-full sm:w-auto">
-                            <Link
-                                to="/products"
-                                className="bg-neutral-900 text-white px-6 py-3 lg:px-8 lg:py-4 rounded-full font-bold hover:bg-neutral-800 transition-all hover:scale-105 active:scale-95 shadow-xl text-center flex items-center justify-center gap-2"
+                    <Tilt
+                        tiltMaxAngleX={5}
+                        tiltMaxAngleY={5}
+                        perspective={1000}
+                        transitionSpeed={2000}
+                        scale={1.02}
+                        className="w-full lg:w-1/2 z-10 animate-fade-in-up mt-8 lg:mt-0 flex flex-col justify-center lg:min-h-[620px]"
+                    >
+                        <div className="flex flex-col items-center justify-center text-center py-8 sm:py-10 lg:py-24" style={{ transformStyle: 'preserve-3d' }}>
+                            <span 
+                                className="inline-block px-3 py-1 lg:px-4 lg:py-1.5 rounded-full bg-neutral-900 text-white text-[10px] lg:text-xs font-bold tracking-widest uppercase mb-6 lg:mb-8 transition-transform duration-300"
+                                style={{ transform: 'translateZ(30px)' }}
                             >
-                                Shop Collection <span className="text-xl leading-none">&rarr;</span>
-                            </Link>
-                            <Link
-                                to="/products"
-                                className="bg-transparent border-2 border-neutral-200 text-neutral-800 px-6 py-3 lg:px-8 lg:py-4 rounded-full font-bold hover:bg-neutral-50 hover:border-neutral-300 transition-all text-center"
+                                New Collection 2026
+                            </span>
+                            
+                            <h1 
+                                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold font-serif mb-6 lg:mb-8 leading-[1.1] text-neutral-900 transition-transform duration-300 drop-shadow-sm"
+                                style={{ transform: 'translateZ(60px)' }}
                             >
-                                Explore Products
-                            </Link>
+                                Stylish Bags for Every Occasion.
+                            </h1>
+                            
+                            <p 
+                                className="text-base sm:text-lg md:text-xl text-neutral-600 max-w-lg mx-auto mb-10 lg:mb-12 font-light leading-relaxed transition-transform duration-300"
+                                style={{ transform: 'translateZ(40px)' }}
+                            >
+                                Discover premium tote, travel, and custom printed bags designed for everyday style and unmatched durability.
+                            </p>
+                            
+                            <div 
+                                className="flex flex-col sm:flex-row gap-4 lg:gap-6 w-full sm:w-auto transition-transform duration-300 mb-8 lg:mb-12"
+                                style={{ transform: 'translateZ(50px)' }}
+                            >
+                                <Link
+                                    to="/products"
+                                    className="bg-neutral-900 text-white px-6 py-3 lg:px-8 lg:py-4 rounded-full font-bold hover:bg-neutral-800 transition-all hover:scale-105 active:scale-95 shadow-xl text-center flex items-center justify-center gap-2"
+                                >
+                                    Shop Collection <span className="text-xl leading-none">&rarr;</span>
+                                </Link>
+                                <Link
+                                    to="/products"
+                                    className="bg-transparent border-2 border-neutral-200 text-neutral-800 px-6 py-3 lg:px-8 lg:py-4 rounded-full font-bold hover:bg-neutral-50 hover:border-neutral-300 transition-all text-center"
+                                >
+                                    Explore Products
+                                </Link>
+                            </div>
                         </div>
-                    </div>
+                    </Tilt>
 
                     {/* Right Side: Featured Gallery */}
                     <div className="w-full lg:w-1/2 relative flex justify-center lg:justify-end animate-fade-in-up mt-6 lg:mt-0" style={{ animationDelay: '0.2s' }}>
                         {/* Decorative Background Blob */}
                         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-blue-50 rounded-full blur-3xl opacity-70 -z-10"></div>
                         
-                        <div className="relative w-full max-w-[550px] grid grid-cols-2 gap-3 sm:gap-4 lg:gap-6">
-                            <div className="flex flex-col gap-3 sm:gap-4 lg:gap-6 mt-8 sm:mt-12">
-                                <img 
-                                    src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7?q=80&w=600&auto=format&fit=crop" 
-                                    alt="Premium Minimal Tote Bag" 
-                                    className="w-full aspect-[4/5] object-cover rounded-2xl sm:rounded-3xl shadow-lg border-2 sm:border-4 border-white"
-                                />
-                                <img 
-                                    src="https://images.unsplash.com/photo-1584916201218-f4242ceb4809?q=80&w=600&auto=format&fit=crop" 
-                                    alt="Foldable Market Bag" 
-                                    className="w-full aspect-square object-cover rounded-2xl sm:rounded-3xl shadow-lg border-2 sm:border-4 border-white"
-                                />
-                            </div>
-                            <div className="flex flex-col gap-3 sm:gap-4 lg:gap-6 mb-8 sm:mb-12">
-                                <img 
-                                    src="https://images.unsplash.com/photo-1547949003-9792a18a2601?q=80&w=600&auto=format&fit=crop" 
-                                    alt="Leather Travel Bag" 
-                                    className="w-full aspect-square object-cover rounded-2xl sm:rounded-3xl shadow-lg border-2 sm:border-4 border-white"
-                                />
-                                <img 
-                                    src="https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?q=80&w=600&auto=format&fit=crop" 
-                                    alt="Eco Cotton Tote" 
-                                    className="w-full aspect-[4/5] object-cover rounded-2xl sm:rounded-3xl shadow-lg border-2 sm:border-4 border-white"
-                                />
-                            </div>
-                            
-                            {/* Floating badge */}
-                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white/90 backdrop-blur-sm p-2 sm:p-4 rounded-xl sm:rounded-2xl shadow-xl flex flex-col sm:flex-row items-center gap-1 sm:gap-3 z-10">
-                                <div className="w-8 h-8 sm:w-12 sm:h-12 bg-neutral-900 text-white rounded-full flex items-center justify-center text-sm sm:text-xl">✨</div>
-                                <div className="text-center sm:text-left">
-                                    <p className="text-[10px] sm:text-sm font-bold text-neutral-900 leading-tight block">Premium</p>
-                                    <p className="text-[8px] sm:text-xs text-neutral-500 leading-tight block">Collection</p>
+                        <Tilt
+                            tiltMaxAngleX={10}
+                            tiltMaxAngleY={10}
+                            perspective={1000}
+                            transitionSpeed={1500}
+                            scale={1.05}
+                            glareEnable={true}
+                            glareMaxOpacity={0.3}
+                            glarePosition="all"
+                            className="relative w-full max-w-[550px]"
+                        >
+                            <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:gap-6" style={{ transformStyle: 'preserve-3d' }}>
+                                <div className="flex flex-col gap-3 sm:gap-4 lg:gap-6 mt-8 sm:mt-12">
+                                    <img 
+                                        src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7?q=80&w=600&auto=format&fit=crop" 
+                                        alt="Premium Minimal Tote Bag" 
+                                        className="w-full aspect-[4/5] object-cover rounded-2xl sm:rounded-3xl shadow-lg border-2 sm:border-4 border-white transition-transform duration-300"
+                                        style={{ transform: 'translateZ(40px)' }}
+                                    />
+                                    <img 
+                                        src="https://images.unsplash.com/photo-1584916201218-f4242ceb4809?q=80&w=600&auto=format&fit=crop" 
+                                        alt="Foldable Market Bag" 
+                                        className="w-full aspect-square object-cover rounded-2xl sm:rounded-3xl shadow-lg border-2 sm:border-4 border-white transition-transform duration-300"
+                                        style={{ transform: 'translateZ(20px)' }}
+                                    />
+                                </div>
+                                <div className="flex flex-col gap-3 sm:gap-4 lg:gap-6 mb-8 sm:mb-12">
+                                    <img 
+                                        src="https://images.unsplash.com/photo-1547949003-9792a18a2601?q=80&w=600&auto=format&fit=crop" 
+                                        alt="Leather Travel Bag" 
+                                        className="w-full aspect-square object-cover rounded-2xl sm:rounded-3xl shadow-lg border-2 sm:border-4 border-white transition-transform duration-300"
+                                        style={{ transform: 'translateZ(10px)' }}
+                                    />
+                                    <img 
+                                        src="https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?q=80&w=600&auto=format&fit=crop" 
+                                        alt="Eco Cotton Tote" 
+                                        className="w-full aspect-[4/5] object-cover rounded-2xl sm:rounded-3xl shadow-lg border-2 sm:border-4 border-white transition-transform duration-300"
+                                        style={{ transform: 'translateZ(50px)' }}
+                                    />
+                                </div>
+                                
+                                {/* Floating badge with highest Z-translation for maximum pop-out effect */}
+                                <div 
+                                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white/90 backdrop-blur-sm p-2 sm:p-4 rounded-xl sm:rounded-2xl shadow-2xl flex flex-col sm:flex-row items-center gap-1 sm:gap-3 z-10 transition-transform duration-300"
+                                    style={{ transform: 'translate(-50%, -50%) translateZ(80px)' }}
+                                >
+                                    <div className="w-8 h-8 sm:w-12 sm:h-12 bg-neutral-900 text-white rounded-full flex items-center justify-center text-sm sm:text-xl">✨</div>
+                                    <div className="text-center sm:text-left">
+                                        <p className="text-[10px] sm:text-sm font-bold text-neutral-900 leading-tight block">Premium</p>
+                                        <p className="text-[8px] sm:text-xs text-neutral-500 leading-tight block">Collection</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </Tilt>
                     </div>
 
                 </div>

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import api from '../services/api';
 import WhatsAppFloatingButton from '../components/WhatsAppFloatingButton';
+import { FaWhatsapp } from 'react-icons/fa';
 
 const ProductDetails = () => {
     const { slug } = useParams();
@@ -123,7 +124,8 @@ const ProductDetails = () => {
                             rel="noopener noreferrer"
                             className={`flex-1 flex justify-center items-center gap-2 px-8 py-4 rounded-full font-bold text-lg transition-all shadow-lg ${product.stock === 0 ? 'bg-neutral-200 text-neutral-400 cursor-not-allowed pointer-events-none' : 'bg-[#25D366] text-white hover:bg-[#128C7E] hover:scale-105 active:scale-95'}`}
                         >
-                            Order on WhatsApp
+                            <FaWhatsapp className="w-6 h-6 flex-shrink-0" />
+                            <span>Order on WhatsApp</span>
                         </a>
                     </div>
 

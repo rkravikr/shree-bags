@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FaWhatsapp } from 'react-icons/fa';
 
 const ProductCard = ({ product }) => {
     return (
@@ -20,10 +21,11 @@ const ProductCard = ({ product }) => {
                         href={`https://wa.me/${import.meta.env.VITE_WHATSAPP_NUMBER || "919876543210"}?text=${encodeURIComponent(`Hello, I want to order this product:\n\n*Product*: ${product.name}\n*Price*: ₹${product.price}`)}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex-1 bg-[#25D366] text-white px-4 py-2.5 rounded-xl text-sm font-bold shadow-lg hover:bg-[#128C7E] transition-colors text-center truncate"
+                        className="flex-1 bg-[#25D366] text-white px-3 py-2.5 rounded-xl text-sm font-bold shadow-lg hover:bg-[#128C7E] transition-colors flex items-center justify-center gap-1.5 overflow-hidden"
                         onClick={(e) => e.stopPropagation()}
                     >
-                        Order Now
+                        <FaWhatsapp className="w-5 h-5 flex-shrink-0" />
+                        <span className="truncate">Order Now</span>
                     </a>
                     <Link
                         to={`/products/${product.slug}`}
